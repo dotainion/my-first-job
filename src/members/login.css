@@ -1,0 +1,97 @@
+.mainContainer{
+    position: fixed;
+    /*background-image: url(../images/Wave_Compressed_2.png);*/
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.mainIcon{
+    position:absolute;
+    margin-left: 10%;
+    width: 110px;
+    height: auto;
+}
+.topButtonContainer{
+    margin-left: 65%;
+}
+.communityButtons{
+    padding: 10px;
+    border: 2px solid rgb(168, 94, 168);
+    margin-top: 20px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+.createAccountButtons{
+    padding: 10px;
+    color: white;
+    border: 2px solid rgb(168, 94, 168);
+    background-color: rgb(168, 94, 168);
+    margin-top: 20px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+.communityHover:hover{
+    color: white;
+    background-color: rgb(168, 94, 168);
+}
+.createAccountHover:hover{
+    color: rgb(168, 94, 168);
+    background-color: white;
+}
+.loginInputscontainer{
+    width: 60%;
+    top:50%;
+    left: 50%;
+    border-radius: 5px;
+    transform: translate3d(-50%,-50%, 0);
+    position: absolute;
+    padding: 40px;
+    border: 1px solid lightgray;
+    text-align: center;
+    user-select: none;
+    background-color: white;
+}
+.createAccountButton{
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+.subcontainers{
+    margin-left: 50%;
+    width: 60%;
+    transform: translateX(-50%);
+    text-align: left;
+}
+.labels{
+    width: 100%;
+}
+.inputs{
+    width: 100%;
+    height: 40px;
+    outline: none;
+    border: 1px solid lightgray;
+    box-shadow: 1px 2px lightgray;
+    border-radius: 5px;
+}
+.inputsFocus:focus{
+    border: 1px solid dodgerblue;
+}
+.singInButton{
+    width: 65px;
+    margin-left: 75%;
+    margin-top: 20px;
+    margin-bottom: 10PX;
+    border-radius: 5px;
+    color: white;
+    background-color: dodgerblue;
+    border: none;
+    box-shadow: 2PX 3px gray;
+}
+.singInButtonFocus:focus{
+    outline: none;
+}
+.onsignInClick:active{
+    outline: none;
+    box-shadow:1px 2px lightgray;
+    transform: translateX(1px);
+}
+
