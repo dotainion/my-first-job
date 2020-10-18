@@ -1,11 +1,12 @@
-import React, { Component, useState } from 'react';
-import './login.css';
+import React, { useState } from 'react';
+import './login-signup.css';
 import image from '../images/Image-from-iOS.png';
 import Footer from './footer';
 import { MenuIcon } from './hamburgerMenu';
-import axios from 'axios';
+import { FirebaseAuth } from '../modules/auth/loginAndRegisterService';
+import { Link } from 'react-router-dom';
 
-
+const auth = new FirebaseAuth();
 const Login = () =>{
     const [dropDownState, setDropDownState] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
@@ -16,7 +17,7 @@ const Login = () =>{
         else setDropDownState(true);
     }
 
-    const inputesCheck = (data) =>{
+    const inputesCheck = async(data) =>{
         let msg = "";
         const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         if (data.password === "" && data.email === "" || !regex.test(data.email)) msg = "Invalid Email and Password";
@@ -24,13 +25,16 @@ const Login = () =>{
         else if (!data.password) msg = "Invalid Password";
         setErrorMsg(msg);
         if (!msg){
-            console.log("logged in");
-            //place code here
+            const response = await auth.login(inputData.email,inputData.password);
+            console.log(response)
+            if (response.state) setErrorMsg("You are sign in");
+            else setErrorMsg(response.message);
+
         }
     }
     return(
         <div className="main-main-container-background">
-            <div className="main-main-container">
+            <div className="main-main-container-login">
                 <div className="mainContainer">
                     <img className="nal-Icon" src={image}/>
                     <div className="menuIcon"><MenuIcon onClick={()=>{openMobilDropDown()}}/></div>
@@ -39,12 +43,13 @@ const Login = () =>{
                         <label className="createAccountButtons createAccountHover">Create Account</label>
                     </nav>
 
-                    <div className="loginInputscontainer">
+                    <div className="inputsContainerLogin">
                         <div hidden={!dropDownState} className="drop-down-menu-container">
                             <div className="drop-down-menu-item">Community</div>
                             <div className="drop-down-menu-item">Create Account</div>
                         </div>
-                        <label className="createAccountButton labelHover">Don't Have an Account? Click Here</label>
+
+                        <Link to="/signup"><label className="createAccountButton labelHover">Don't Have an Account? Click Here</label></Link>
 
                         <div className="subcontainers">
                             <label className="labels">Email Address</label>
@@ -62,7 +67,7 @@ const Login = () =>{
                             <button className="singInButton onsignInClick singInButtonFocus" onClick={()=>{inputesCheck(inputData);}}>Sign In</button>
                             <label className="singIn-error">{errorMsg}</label>
                         </div>
-                        </div>
+                    </div>
                 </div>
                 <Footer/>
             </div>
