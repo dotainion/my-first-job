@@ -1,0 +1,18 @@
+.menu-button-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 24px;
+    width: 30px;
+    background-color: red;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+}
+.menu-button-line{
+    height: 2px;
+    width: 100%;
+    background-color: white;
+}

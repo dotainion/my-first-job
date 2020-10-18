@@ -4,6 +4,7 @@
     width: 100%;
     height: 200px;
     background-color: white;
+    background: transparent;
 }
 .footerSubContainer{
     bottom: 0;
@@ -16,13 +17,52 @@
     width: 20%;
     font-size: 20px;
     text-align: center;
-    color: black;
+    color: rgb(168, 94, 168);
     padding-bottom: 30px;
+    font-weight: bold;
 }
-.footerIcon{
+.footer-nal-icon{
     position:absolute;
     margin-left: 50%;
     transform: translate(-50%);
     width: 110px;
     height: auto;
+}
+.footerIconContainer{
+    position:absolute;
+    margin-top: 90px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+.footerTwiterIcon{
+    margin-left: 10px;
+    width: 25px;
+    height: auto;
+}
+.footerInstagramIcon{
+    margin-left: 10px;
+    width: 35px;
+    height: auto;
+}
+.labelHover:hover{
+    color: gray;
+    text-decoration: underline;
+}
+@media screen and (max-width:500px){
+    .footerMainContainer{
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+        height: 300px;
+        background-color: white;
+    }
+    .footerItem{
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+        color: rgb(168, 94, 168);
+        padding-bottom: 0px;
+        display: block;
+        font-size: 15px;
+    }
 }

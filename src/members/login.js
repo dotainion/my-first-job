@@ -1,44 +1,73 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './login.css';
-import image from '../images/nal-navbar.png';
-import bg_image from '../images/Wave_Compressed_2.png';
+import image from '../images/Image-from-iOS.png';
 import Footer from './footer';
+import { MenuIcon } from './hamburgerMenu';
+import axios from 'axios';
 
 
+const Login = () =>{
+    const [dropDownState, setDropDownState] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
+    const [inputData, setInputData] = useState({email:"",password:""});
 
-class Login extends Component{
-    render(){    
-        return(
-            <div>
-                <div className="mainContainer" style={{backgroundImage:`url(${bg_image})`}}>
-                    <img className="mainIcon" src={image}/>
+    const openMobilDropDown = () =>{
+        if (dropDownState) setDropDownState(false);
+        else setDropDownState(true);
+    }
 
-                    <div className="topButtonContainer">
+    const inputesCheck = (data) =>{
+        let msg = "";
+        const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+        if (data.password === "" && data.email === "" || !regex.test(data.email)) msg = "Invalid Email and Password";
+        else if (!data.email || !regex.test(data.email)) msg = "Invalid Email";
+        else if (!data.password) msg = "Invalid Password";
+        setErrorMsg(msg);
+        if (!msg){
+            console.log("logged in");
+            //place code here
+        }
+    }
+    return(
+        <div className="main-main-container-background">
+            <div className="main-main-container">
+                <div className="mainContainer">
+                    <img className="nal-Icon" src={image}/>
+                    <div className="menuIcon"><MenuIcon onClick={()=>{openMobilDropDown()}}/></div>
+                    <nav role="navigation" className="topButtonContainer">
                         <label className="communityButtons communityHover">Community</label>
                         <label className="createAccountButtons createAccountHover">Create Account</label>
-                    </div>
+                    </nav>
 
                     <div className="loginInputscontainer">
-                        <label className="createAccountButton">Don't Have an Account? Click Here</label>
+                        <div hidden={!dropDownState} className="drop-down-menu-container">
+                            <div className="drop-down-menu-item">Community</div>
+                            <div className="drop-down-menu-item">Create Account</div>
+                        </div>
+                        <label className="createAccountButton labelHover">Don't Have an Account? Click Here</label>
 
                         <div className="subcontainers">
                             <label className="labels">Email Address</label>
-                            <div><input className="inputs inputsFocus"/></div>
+                            <div><input type="email" maxLength="256" onChange={(e)=>{
+                                setInputData({email:e.target.value,password:inputData.password});
+                            }} className="inputs inputsFocus"/></div>
                         </div>
                         <div className="subcontainers">
                             <label className="labels">Password</label>
-                            <div><input className="inputs inputsFocus"/></div>
+                            <div><input type="password" maxLength="256" onChange={(e)=>{
+                                setInputData({email:inputData.email,password:e.target.value});
+                            }} className="inputs inputsFocus"/></div>
                         </div>
                         <div className="subcontainers">
-                            <button className="singInButton onsignInClick singInButtonFocus">Sign In</button>
+                            <button className="singInButton onsignInClick singInButtonFocus" onClick={()=>{inputesCheck(inputData);}}>Sign In</button>
+                            <label className="singIn-error">{errorMsg}</label>
                         </div>
-                    </div>
-                    
+                        </div>
                 </div>
                 <Footer/>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default Login;
