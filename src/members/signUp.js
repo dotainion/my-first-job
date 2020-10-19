@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './login-signup.css';
 import image from '../images/Image-from-iOS.png';
-import Footer from './footer';
-import { MenuIcon } from './hamburgerMenu';
+import Footer from '../components/footer';
+import { MenuIcon } from '../components/hamburgerMenu';
 import { FirebaseAuth } from '../modules/auth/loginAndRegisterService';
 import { Link } from 'react-router-dom';
 
