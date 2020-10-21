@@ -10,8 +10,8 @@ const footer = () =>{
             <div className="footerMainContainer">
                 <img className="footer-nal-icon" src={nal_icon}/>
                 <div className="footerIconContainer">
-                    <img className="footerTwiterIcon" src={twiter_icon}/>
-                    <img className="footerInstagramIcon" src={instagram_icon}/>
+                    <img className="footerTwiterIcon footerIconHover" src={twiter_icon}/>
+                    <img className="footerInstagramIcon footerIconHover" src={instagram_icon}/>
                 </div>
                 <div className="footerSubContainer">
                     {

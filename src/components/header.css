@@ -1,0 +1,77 @@
+.nal-image{
+    position:absolute;
+    margin-left: 10%;
+    width: 110px;
+    height: auto;
+}
+.menu-button-container{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 24px;
+    width: 30px;
+    background-color: red;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-left: 92%;
+    transform: translate(-50%);
+}
+.menu-button-line{
+    height: 2px;
+    width: 100%;
+    background-color: white;
+}
+.header-button-container{
+    width: 100%;
+    text-align: right;
+}
+.header-comunity{
+    padding: 10px;
+    border: 2px solid rgb(168, 94, 168);
+    margin-top: 20px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+.header-create-account{
+    padding: 10px;
+    color: white;
+    border: 2px solid rgb(168, 94, 168);
+    background-color: rgb(168, 94, 168);
+    margin-top: 20px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+.communityHover:hover{
+    color: white;
+    background-color: rgb(168, 94, 168);
+}
+.createAccountHover:hover{
+    color: rgb(168, 94, 168);
+    background-color: white;
+}
+.header-dropdown-menu-container{
+    width: 98%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: lightgray;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.header-dropdown-menu{
+    font-size: 20px;
+    padding: 10px;
+}
+@media screen and (max-width:500px){
+    .menu-button-container{
+        display: flex;
+    }
+    .header-button-container{
+        display: none;
+    }
+}

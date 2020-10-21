@@ -1,8 +1,10 @@
 import config from '../config/firebaseServiceAccount';
 import firebase from 'firebase';
 
-firebase.initializeApp(config);
+const fb_db = firebase.initializeApp(config);
+const FIRE_BASE = fb_db.firestore();
 
+export { FIRE_BASE };
 export class FirebaseAuth{
     async login(email,password){
         try{
